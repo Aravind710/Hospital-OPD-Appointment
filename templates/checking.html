@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http:/www.thymeleaf.org">
+	<head><title>Appointment</title></head>
+	<body>
+		<h1 style="text-align:center;">Appointment</h1>
+		<center>
+		<table border="1" cellpadding="10">
+			<thead>
+			<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Speciality</th>
+			<th>Appointment</th>
+			</tr>
+			</thead>
+			<tbody>
+				<tr th:each="appointment:${listappointments}">
+				<td th:text="${appointment.id}">Product id</td>
+				<td th:text="${appointment.name}">Name</td>
+				<td th:text="${appointment.email}">Email</td>
+				<td th:text="${appointment.date}">Date</td>
+				<td th:text="${appointment.time}">Time</td>
+				<td th:text="${appointment.speciality}">Speciality</td>
+				<td><input type="checkbox">Checked</td>
+				</tr>
+			</tbody>
+		</table>
+		</center>
+	</body>
+</html>

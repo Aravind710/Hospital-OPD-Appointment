@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <style>
+        .inputbox {
+            margin-left: 25%;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            width: 45%;
+            height: 35px;
+            border: 3px solid black;
+            border-radius: 100px;
+        }
+
+        .but {
+            margin-left: 38%;
+            margin-top: 10px;
+            width: 20%;
+            height: 35px;
+            border: 3px solid black;
+            border-radius: 100px;
+            background-color: rgb(0, 179, 255);
+            font-size: x-large;
+        }
+
+        .register {
+            width: 100%;
+            border: 0px solid black;
+        }
+
+        .regdiv {
+            margin-top: 30px;
+            Width: 100%;
+            height: 550px;
+            border: 1px solid white;
+            background-color: rgb(86, 204, 255);
+        }
+
+        label {
+            margin-left: 25%;
+            font-size: x-large;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="ms-5 regdiv" id="reg" autocomplete="of">
+        <form class="register" th:action="@{/save}" method="post" th:object="${appointment}">
+            <h1 style="margin-bottom: 30px;text-align: center;font-size:xx-large;">Make an Appiontment</h1>
+            <label><b>Name</b></label><br />
+            <input type="text" class="inputbox" th:field="*{name}" required /><br />
+            <label><b>Email</b></label><br />
+            <input type="email" class="inputbox" th:field="*{email}" required/><br />
+            <label><b>Date</b></label><br />
+            <input type="date" class="inputbox" th:field="*{date}" required /><br />
+            <label><b>Time</b></label><br />
+            <input type="time" class="inputbox" th:field="*{time}" required /><br />
+            <label><b>Specialities</b></label>
+            <select class="inputbox"  th:field="*{speciality}" required>
+                <option th:each="p : ${speciality}" th:value="${p}" th:text="${p}" />
+            </select><br />
+            <button type="submit" class="but">Make It</button>
+        </form>
+    </div>
+</body>
+
+</html>
